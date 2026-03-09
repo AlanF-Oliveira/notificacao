@@ -30,7 +30,7 @@ public class EmailService {
     @Value("${envio.email.nomeRemetente}")
     private String nomeRemetente;
 
-    public void enviaEmail(TarefasDTO dto){
+    public void enviaEmail(TarefasDTO dto) {
 
         try {
             MimeMessage message = mailSender.createMimeMessage();
@@ -50,6 +50,6 @@ public class EmailService {
             throw new EmailException("Erro ao enviar o email ", e.getCause());
         }
     }
-    }
-
 }
+
+
