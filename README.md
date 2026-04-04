@@ -102,13 +102,6 @@ cd notificacao
 
 ---
 
-## 🧪 Testes
-
-```bash
-./gradlew test
-```
-
----
 
 ## 👤 Autor
 
