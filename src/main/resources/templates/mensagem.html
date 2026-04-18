@@ -42,12 +42,12 @@
         <h1>Notificação de Tarefa</h1>
     </div>
     <div class="content">
-        <p>Aviso: Sua tarefa <span class="important" th:text="${nomeTarefa}">Nome da Tarefa</span> está agendada para hoje às <span class="important" th:text="${dataEvento}">Horário</span>.</p>
+        <p>Aviso: Sua tarefa <span class="important" th:text="${nomeDestinatario}">Nome do destinario</span> <span class="important" th:text="${dataHoraEnvio}">Horário</span>.</p>
         <p>Confira sua descrição:</p>
-        <p th:text="${descricao}">Descrição da Tarefa</p>
+        <p th:text="${mensagem}">Mensagem</p>
     </div>
     <div class="footer">
-        <p>Obrigado por usar nosso sistema de tarefas.</p>
+        <p>Obrigado por usar nosso sistema de mensagens.</p>
     </div>
 </div>
 </body>

@@ -47,7 +47,7 @@ public class EmailService {
             mimeMessageHelper.setText(template, true);
             mailSender.send(message);
         } catch (EmailException | UnsupportedEncodingException | MessagingException e) {
-            throw new EmailException("Erro ao enviar o email ", e.getCause());
+            throw new EmailException("Erro ao enviar o email ", e);
         }
     }
 
@@ -63,12 +63,12 @@ public class EmailService {
             context.setVariable("nomeDestinatario", dto.getNomeDestinatario());
             context.setVariable("dataHoraEnvio", dto.getDataHoraEnvio());
             context.setVariable("mensagem", dto.getMensagem());
-            String template = templateEngine.process("notificacao", context);
+            String template = templateEngine.process("mensagem", context);
             mimeMessageHelper.setText(template, true);
             mailSender.send(message);
 
         } catch (EmailException | UnsupportedEncodingException | MessagingException e) {
-            throw new EmailException("Erro ao enviar o email ", e.getCause());
+            throw new EmailException("Erro ao enviar o email ", e);
         }
     }
 }
