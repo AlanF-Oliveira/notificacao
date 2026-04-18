@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Mensagem no email</title>
@@ -39,15 +39,23 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>Mensagem</h1>
+        <h1>Nova Mensagem</h1>
     </div>
     <div class="content">
-        <p>Aviso: Nova Mensagem:  <span class="important" th:text="${nomeDestinatario}">Nome do destinário</span> <span class="important" th:text="${dataHoraEnvio}">Horário</span>.</p>
-        Confira sua mensagem:
-        <p th:text="${mensagem}">Mensagem</p>
+        <p>Destinatário:
+            <span class="important" th:text="${nomeDestinatario}">Nome do destinatário</span></p>
+        <p>Data e hora da mensagem:
+            <span class="important" th:text="${dataHoraEnvio}">Horário</span>.</p>
+        <p>Contato:
+            <span class="important" th:text="${telefoneDestinatario}">Telefone</span>
+        </p>
+        <p>Confira sua mensagem:
+            <span th:text="${mensagem}">mensagem</span>
+        </p>
+
     </div>
     <div class="footer">
-        <p>Obrigado por usar nosso sistema de mensagens.</p>
+        <p>Obrigado por usar nossos serviços.</p>
     </div>
 </div>
 </body>
