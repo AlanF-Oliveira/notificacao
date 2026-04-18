@@ -1,9 +1,9 @@
 package com.alan.notificacao.business;
 
+import com.alan.notificacao.business.dto.ComunicacaoDTO;
 import com.alan.notificacao.business.dto.TarefasDTO;
 import com.alan.notificacao.business.infrastructure.exceptions.EmailException;
 import jakarta.mail.MessagingException;
-import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,30 @@ public class EmailService {
             mimeMessageHelper.setText(template, true);
             mailSender.send(message);
         } catch (EmailException | UnsupportedEncodingException | MessagingException e) {
-            throw new EmailException("Erro ao enviar o email ", e.getCause());
+            throw new EmailException("Erro ao enviar o email ", e);
+        }
+    }
+
+    public void enviarMensagem(ComunicacaoDTO dto){
+        try {
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message, true, StandardCharsets.UTF_8.name());
+            mimeMessageHelper.setFrom((new InternetAddress(remetente, nomeRemetente)));
+            mimeMessageHelper.setTo(InternetAddress.parse((dto.getEmailDestinatario())));
+            mimeMessageHelper.setSubject("Notificação de mensagem");
+
+            Context context = new Context();
+            context.setVariable("nomeDestinatario", dto.getNomeDestinatario());
+            context.setVariable("dataHoraEnvio", dto.getDataHoraEnvio());
+            context.setVariable("mensagem", dto.getMensagem());
+            context.setVariable("modoDeEnvio", dto.getModoDeEnvio());
+            context.setVariable("telefoneDestinatario", dto.getTelefoneDestinatario());
+            String template = templateEngine.process("mensagem", context);
+            mimeMessageHelper.setText(template, true);
+            mailSender.send(message);
+
+        } catch (EmailException | UnsupportedEncodingException | MessagingException e) {
+            throw new EmailException("Erro ao enviar o email ", e);
         }
     }
 }
