@@ -1,10 +1,9 @@
 package com.alan.notificacao.business.dto;
 
+import com.alan.notificacao.business.enums.ModoEnvioEnum;
+import com.alan.notificacao.business.enums.StatusEnvioEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.luizalebs.comunicacao_api.infraestructure.enums.ModoEnvioEnum;
-import com.luizalebs.comunicacao_api.infraestructure.enums.StatusEnvioEnum;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.io.Serializable;
@@ -18,10 +17,6 @@ import java.util.Date;
 @ToString
 public class ComunicacaoDTO implements Serializable {
 
-    @Schema(
-            description = "Data e hora do envio",
-            example = "2026-04-15 22:42:59"
-    )
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dataHoraEnvio;
     private String nomeDestinatario;

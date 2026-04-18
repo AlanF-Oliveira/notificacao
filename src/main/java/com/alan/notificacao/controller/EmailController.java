@@ -21,6 +21,5 @@ public class EmailController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping
-    public
+
 }
