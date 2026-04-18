@@ -63,6 +63,8 @@ public class EmailService {
             context.setVariable("nomeDestinatario", dto.getNomeDestinatario());
             context.setVariable("dataHoraEnvio", dto.getDataHoraEnvio());
             context.setVariable("mensagem", dto.getMensagem());
+            context.setVariable("modoDeEnvio", dto.getModoDeEnvio());
+            context.setVariable("telefoneDestinatario", dto.getTelefoneDestinatario());
             String template = templateEngine.process("mensagem", context);
             mimeMessageHelper.setText(template, true);
             mailSender.send(message);

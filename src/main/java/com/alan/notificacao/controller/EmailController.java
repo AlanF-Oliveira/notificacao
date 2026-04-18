@@ -22,7 +22,7 @@ public class EmailController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping
+    @PostMapping("/mensagem")
     public ResponseEntity<Void> enviarMensagem(@RequestBody ComunicacaoDTO dto){
         emailService.enviarMensagem(dto);
         return ResponseEntity.ok().build();
