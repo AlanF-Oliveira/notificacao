@@ -1,6 +1,7 @@
 package com.alan.notificacao.controller;
 
 import com.alan.notificacao.business.EmailService;
+import com.alan.notificacao.business.dto.ComunicacaoDTO;
 import com.alan.notificacao.business.dto.TarefasDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,12 @@ public class EmailController {
     @PostMapping
     public ResponseEntity<Void> enviarEmail(@RequestBody TarefasDTO dto){
         emailService.enviaEmail(dto);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/mensagem")
+    public ResponseEntity<Void> enviarMensagem(@RequestBody ComunicacaoDTO dto){
+        emailService.enviarMensagem(dto);
         return ResponseEntity.ok().build();
     }
 }
