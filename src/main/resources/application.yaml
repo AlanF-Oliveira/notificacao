@@ -2,8 +2,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: alanf.olive@gmail.com
-    password: xpkq fpyk phgc ttws
+    username: xxxx.xxxx@gmail.com
+    password: xxxx xxxx xxxx xxxx
     protocol: smtp
     properties:
       mail:
@@ -23,7 +23,7 @@ spring:
 
 envio:
   email:
-    remetente: alanf.olive@gmail.com
+    remetente: xxxxx.xxxx@gmail.com
     nomeRemetente: 'Alan'
 
 server:
